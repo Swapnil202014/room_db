@@ -13,11 +13,14 @@ interface OwnerDao {
     fun insertOwner(owner: Owner)
 
     @Query("select * from Owner")
-    fun getOwners() : List<Owner>
+    fun getOwners(): List<Owner>
 
     @Update
     fun editOwner(owner: Owner)
 
     @Delete
     fun deleteOwner(owner: Owner)
+
+    @Query("select * from Owner where id =:id limit 1")
+    fun getOwner(id: Int): Owner
 }
